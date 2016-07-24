@@ -30,10 +30,10 @@ describe('PokerHandTypeCheckerRules', function() {
         });
         it('should return true when 2 of the 5 cards in the hand have the same value', function() {
             var hand = [
-                new Card('2', "H"),
-                new Card('2', "D"),
                 new Card('5', "S"),
+                new Card('2', "H"),
                 new Card('9', "C"),
+                new Card('2', "D"),
                 new Card('K', "D")
             ];
             expect(pairRule.check(hand)).to.be.true;
