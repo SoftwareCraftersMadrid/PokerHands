@@ -5,6 +5,7 @@ var pairRule = require('../src/rules/isPair');
 var twoPairRule = require('../src/rules/twoPairs');
 var threeOfAKind = require('../src/rules/threeOfAKind');
 var straight = require('../src/rules/straight');
+var flush = require('../src/rules/flush');
 
 describe('PokerHandTypeCheckerRules', function() {
     describe('isHighCardRule', function() {
@@ -108,7 +109,7 @@ describe('PokerHandTypeCheckerRules', function() {
     });
 
     describe('Straight rule', function() {
-        it('should return false when a card is not consecutive', function() {
+        it('should return false when a card is not consecutive', function () {
             var hand = [
                 new Card('2', "H"),
                 new Card('4', "D"),
@@ -118,13 +119,36 @@ describe('PokerHandTypeCheckerRules', function() {
             ];
             expect(straight.check(hand)).to.be.false;
         });
-        it('should return true when the hand contains 5 cards with consecutive values', function() {
+        it('should return true when the hand contains 5 cards with consecutive values', function () {
             var hand = [
                 new Card('2', "H"),
                 new Card('4', "C"),
                 new Card('6', "S"),
                 new Card('3', "D"),
                 new Card('5', "D")
+            ];
+            expect(straight.check(hand)).to.be.true;
+        });
+    });
+
+    describe('Flush rule', function() {
+        it('should return false when a card has a different suit', function() {
+            var hand = [
+                new Card('2', "H"),
+                new Card('7', "H"),
+                new Card('5', "D"),
+                new Card('J', "H"),
+                new Card('K', "H")
+            ];
+            expect(straight.check(hand)).to.be.false;
+        });
+        it('should return true when the hand contains 5 cards of the same suit', function() {
+            var hand = [
+                new Card('2', "H"),
+                new Card('7', "H"),
+                new Card('5', "H"),
+                new Card('J', "H"),
+                new Card('K', "H")
             ];
             expect(straight.check(hand)).to.be.true;
         });
