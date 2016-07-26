@@ -7,6 +7,7 @@ function Card(value, suit) {
     return {
         value: self.value,
         weigh: self.weigh,
+        suit: self.suit,
         justValueEqual: function (otherCard) {
           return self.value == otherCard.value
         },

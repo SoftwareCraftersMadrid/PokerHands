@@ -140,7 +140,7 @@ describe('PokerHandTypeCheckerRules', function() {
                 new Card('J', "H"),
                 new Card('K', "H")
             ];
-            expect(straight.check(hand)).to.be.false;
+            expect(flush.check(hand)).to.be.false;
         });
         it('should return true when the hand contains 5 cards of the same suit', function() {
             var hand = [
@@ -150,7 +150,7 @@ describe('PokerHandTypeCheckerRules', function() {
                 new Card('J', "H"),
                 new Card('K', "H")
             ];
-            expect(straight.check(hand)).to.be.true;
+            expect(flush.check(hand)).to.be.true;
         });
     });
 });
