@@ -6,8 +6,10 @@ var twoPairRule = require('../src/rules/twoPairs');
 var threeOfAKind = require('../src/rules/threeOfAKind');
 var straight = require('../src/rules/straight');
 var flush = require('../src/rules/flush');
+var fullHouse = require('../src/rules/fullHouse');
 
 describe('PokerHandTypeCheckerRules', function() {
+
     describe('isHighCardRule', function() {
         it('always should return true', function() {
             var hand = [
@@ -153,6 +155,20 @@ describe('PokerHandTypeCheckerRules', function() {
             expect(flush.check(hand)).to.be.true;
         });
     });
+
+    describe('Full House rule', function() {
+        it('should return true when 3 cards of the same value, with the remaining 2 cards forming a pair', function() {
+            var hand = [
+                new Card('2', "H"),
+                new Card('2', "D"),
+                new Card('2', "C"),
+                new Card('K', "S"),
+                new Card('K', "H")
+            ];
+            expect(fullHouse.check(hand)).to.be.true;
+        });
+    });
+
 });
 
 
