@@ -4,6 +4,7 @@ var highCardRule = require('../src/rules/isHighCard');
 var pairRule = require('../src/rules/isPair');
 var twoPairRule = require('../src/rules/twoPairs');
 var threeOfAKind = require('../src/rules/threeOfAKind');
+var straight = require('../src/rules/straight');
 
 describe('PokerHandTypeCheckerRules', function() {
     describe('isHighCardRule', function() {
@@ -103,6 +104,29 @@ describe('PokerHandTypeCheckerRules', function() {
                 new Card('K', "D")
             ];
             expect(threeOfAKind.check(hand)).to.be.true;
+        });
+    });
+
+    describe('Straight rule', function() {
+        it('should return false when a card is not consecutive', function() {
+            var hand = [
+                new Card('2', "H"),
+                new Card('4', "D"),
+                new Card('5', "S"),
+                new Card('3', "C"),
+                new Card('K', "D")
+            ];
+            expect(straight.check(hand)).to.be.false;
+        });
+        it('should return true when the hand contains 5 cards with consecutive values', function() {
+            var hand = [
+                new Card('2', "H"),
+                new Card('4', "C"),
+                new Card('6', "S"),
+                new Card('3', "D"),
+                new Card('5', "D")
+            ];
+            expect(straight.check(hand)).to.be.true;
         });
     });
 });
