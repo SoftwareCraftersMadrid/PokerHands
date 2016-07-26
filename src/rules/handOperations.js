@@ -5,7 +5,11 @@ var notContains =
         (checkedElement) => checkedElement.value === element.value
     ).length == 0;
 
+
+var sortAscendByWeigh = (hand) => hand.sort((left, right) => left.weigh - right.weigh);
+
 module.exports = {
     isRepeated: isRepeated,
-    notContains: notContains
+    notContains: notContains,
+    sortAscendByWeigh: sortAscendByWeigh
 } ;

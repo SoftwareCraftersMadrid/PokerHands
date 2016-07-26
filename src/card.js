@@ -3,7 +3,7 @@ function Card(value, suit) {
     var self = this;
     self.value = value;
     self.suit = suit;
-    self.weigh = weightOrder[self.value];
+    self.weigh = weightOrder.indexOf(self.value);
     return {
         value: self.value,
         weigh: self.weigh,
