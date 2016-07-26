@@ -1,14 +1,13 @@
-var isRepeated = (element, list) => list.filter((item) => element.value === item.value).length == 2;
+var handOperations = require('./handOperations');
 
-var hasNotCheckedBefore =
-    (element, checkedElements) => checkedElements.filter(
-        (checkedElement) => checkedElement.value === element.value
-    ).length == 0;
+var isTwice = (element, list) => handOperations.isRepeated(element, list, 2);
+
+var hasNotCheckedBefore = (element, checkedElements) => handOperations.notContains(element, checkedElements);
 
 function check(hand) {
     var checkedElements = [];
     hand.forEach(function (element, index, elements) {
-        if(hasNotCheckedBefore(element, checkedElements) && isRepeated(element, elements))
+        if(hasNotCheckedBefore(element, checkedElements) && isTwice(element, elements))
             checkedElements.push(element);
     });
     return checkedElements.length == 1;
