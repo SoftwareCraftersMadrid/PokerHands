@@ -1,6 +1,6 @@
 var handOperations = require('./handOperations');
 
-var isThreeTimes = (element, list) => handOperations.isRepeated(element, list, 3);
+var isThreeTimes = (element, list) => handOperations.isRepeated(element, list, 4);
 
 var hasNotCheckedBefore = (element, checkedElements) => handOperations.notContains(element, checkedElements);
 
@@ -12,3 +12,6 @@ function check(hand) {
     });
     return checkedElements.length == 1;
 }
+
+
+module.exports.check = check;
