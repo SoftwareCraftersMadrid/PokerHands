@@ -3,6 +3,7 @@ var Card = require('../src/card');
 var highCardRule = require('../src/rules/isHighCard');
 var pairRule = require('../src/rules/isPair');
 var twoPairRule = require('../src/rules/twoPairs');
+var threeOfAKind = require('../src/rules/threeOfAKind');
 
 describe('PokerHandTypeCheckerRules', function() {
     describe('isHighCardRule', function() {
@@ -69,6 +70,39 @@ describe('PokerHandTypeCheckerRules', function() {
                 new Card('K', "D")
             ];
             expect(twoPairRule.check(hand)).to.be.true;
+        });
+    });
+
+    describe('Three of a kind rule', function() {
+        it('should return false when all cards has different values', function() {
+            var hand = [
+                new Card('2', "H"),
+                new Card('8', "D"),
+                new Card('5', "S"),
+                new Card('9', "C"),
+                new Card('K', "D")
+            ];
+            expect(threeOfAKind.check(hand)).to.be.false;
+        });
+        it('should return false when the hand contain four cart with same value', function() {
+            var hand = [
+                new Card('2', "H"),
+                new Card('2', "D"),
+                new Card('2', "S"),
+                new Card('2', "C"),
+                new Card('K', "D")
+            ];
+            expect(threeOfAKind.check(hand)).to.be.false;
+        });
+        it('should return true when the hand contains 3 card with the same value', function() {
+            var hand = [
+                new Card('2', "H"),
+                new Card('K', "C"),
+                new Card('2', "S"),
+                new Card('2', "D"),
+                new Card('K', "D")
+            ];
+            expect(threeOfAKind.check(hand)).to.be.true;
         });
     });
 });
