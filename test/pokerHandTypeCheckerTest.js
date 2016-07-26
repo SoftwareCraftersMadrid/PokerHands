@@ -7,6 +7,7 @@ var threeOfAKind = require('../src/rules/threeOfAKind');
 var straight = require('../src/rules/straight');
 var flush = require('../src/rules/flush');
 var fullHouse = require('../src/rules/fullHouse');
+var fourOfAKind = require('../src/rules/fourOfAKind');
 
 describe('PokerHandTypeCheckerRules', function() {
 
@@ -166,6 +167,19 @@ describe('PokerHandTypeCheckerRules', function() {
                 new Card('K', "H")
             ];
             expect(fullHouse.check(hand)).to.be.true;
+        });
+    });
+
+    describe('four of a kind rule', function() {
+        it('should return true when  4 cards with the same value', function() {
+            var hand = [
+                new Card('2', "H"),
+                new Card('K', "D"),
+                new Card('K', "C"),
+                new Card('K', "S"),
+                new Card('K', "H")
+            ];
+            expect(fourOfAKind.check(hand)).to.be.true;
         });
     });
 
