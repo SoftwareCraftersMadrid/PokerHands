@@ -8,6 +8,7 @@ var straight = require('../src/rules/straight');
 var flush = require('../src/rules/flush');
 var fullHouse = require('../src/rules/fullHouse');
 var fourOfAKind = require('../src/rules/fourOfAKind');
+var straightFlush = require('../src/rules/straightFlush');
 
 describe('PokerHandTypeCheckerRules', function() {
 
@@ -180,6 +181,19 @@ describe('PokerHandTypeCheckerRules', function() {
                 new Card('K', "H")
             ];
             expect(fourOfAKind.check(hand)).to.be.true;
+        });
+    });
+
+    describe('Straight Flush rule', function() {
+        it('should return true when  4 cards with the same value', function() {
+            var hand = [
+                new Card('6', "H"),
+                new Card('4', "H"),
+                new Card('3', "H"),
+                new Card('7', "H"),
+                new Card('5', "H")
+            ];
+            expect(straightFlush.check(hand)).to.be.true;
         });
     });
 
