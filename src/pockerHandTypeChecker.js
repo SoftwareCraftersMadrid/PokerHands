@@ -1,6 +1,6 @@
 var rules = require('./rules');
 
-var descending = (leftRule, rightRule) => rules.indexOf(rightRule) - rules.indexOf(leftRule);
+var descending = (leftRule, rightRule) => rightRule.type.weigh - leftRule.type.weigh;
 
 var rulesThatAppliedTo = (hand) => (rule) => rule.check(hand);
 
