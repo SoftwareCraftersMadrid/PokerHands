@@ -17,4 +17,18 @@ describe('Poker Hand Type Checker', () => {
             expect(pokerHandTypeChecker.check(hand)).to.be.equal(HandType.HIGHCARD);
         });
     });
+
+    describe('given a flush hand ', () => {
+        it('should return flush type as result', () => {
+            var hand = [
+                new Card('2', "H"),
+                new Card('7', "H"),
+                new Card('5', "H"),
+                new Card('J', "H"),
+                new Card('K', "H")
+            ];
+
+            expect(pokerHandTypeChecker.check(hand)).to.be.equal(HandType.FLUSH);
+        });
+    });
 });
