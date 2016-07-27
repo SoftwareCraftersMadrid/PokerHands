@@ -1,3 +1,4 @@
+var HandType = require('../HandTypes');
 var handOperations = require('./handOperations');
 
 var isThreeTimes = (element, list) => handOperations.isRepeated(element, list, 3);
@@ -13,4 +14,6 @@ function check(hand) {
     return checkedElements.length == 1;
 }
 
+
 module.exports.check = check;
+module.exports.type = HandType.THREEOFAKIND;

@@ -1,4 +1,5 @@
 var handOperations = require('./handOperations');
+var HandType = require('../HandTypes');
 
 function check(hand) {
     var consecutiveCount = 0;
@@ -12,3 +13,4 @@ function check(hand) {
 }
 
 module.exports.check = check;
+module.exports.type = HandType.STRAIGHT;

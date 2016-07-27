@@ -20,6 +20,7 @@ describe('Poker Hand Type Checker', () => {
 
     describe('given a flush hand ', () => {
         it('should return flush type as result', () => {
+
             var hand = [
                 new Card('2', "H"),
                 new Card('7', "H"),

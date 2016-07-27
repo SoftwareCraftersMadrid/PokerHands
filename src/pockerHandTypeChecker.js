@@ -1,7 +1,7 @@
-var HandType = require('./HandTypes');
-var Card = require('../src/card');
+var rules = require('./rules');
+
 function check(hand) {
-    return HandType.HIGHCARD;
+    return rules.applyTo(hand);
 }
 
 module.exports.check = check;

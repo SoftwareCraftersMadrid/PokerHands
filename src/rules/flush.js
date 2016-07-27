@@ -1,5 +1,5 @@
 var handOperations = require('./handOperations');
-
+var HandType = require('../HandTypes');
 
 function check(hand) {
     var suitOnHans = hand.map((card) => card.suit);
@@ -7,3 +7,4 @@ function check(hand) {
 }
 
 module.exports.check = check;
+module.exports.type = HandType.FLUSH;

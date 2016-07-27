@@ -1,4 +1,5 @@
 var handOperations = require('./handOperations');
+var HandType = require('../HandTypes');
 
 var isTwice = (element, list) => handOperations.isRepeated(element, list, 2);
 
@@ -14,3 +15,4 @@ function check(hand) {
 }
 
 module.exports.check = check;
+module.exports.type = HandType.PAIR;
