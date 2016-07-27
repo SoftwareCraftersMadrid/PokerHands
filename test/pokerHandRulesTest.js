@@ -10,7 +10,7 @@ var fullHouse = require('../src/rules/fullHouse');
 var fourOfAKind = require('../src/rules/fourOfAKind');
 var straightFlush = require('../src/rules/straightFlush');
 
-describe('PokerHandTypeCheckerRules', function() {
+describe('Poker Hand Rules', function() {
 
     describe('isHighCardRule', function() {
         it('always should return true', function() {
