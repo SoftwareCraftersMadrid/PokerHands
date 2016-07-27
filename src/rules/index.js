@@ -20,16 +20,18 @@ var rules = [
     straightFlush
 ] ;
 
+var descending = (leftRule, rightRule) => rules.indexOf(rightRule) - rules.indexOf(leftRule);
+
+var rulesThatAppliedTo = (hand) => (rule) => rule.check(hand);
+
+
 function applyTo(hand) {
-    var passedRules = rules.filter(
-        (rule) => rule.check(hand)
-    );
 
-    var sortedPassedRules = passedRules.sort(
-        (leftRule, rightRule) => rules.indexOf(rightRule) - rules.indexOf(leftRule)
-    );
-
-    return sortedPassedRules[0].type;
+    return rules.filter(
+        rulesThatAppliedTo(hand)
+    ).sort(
+        descending
+    )[0].type;
 }
 
 module.exports.applyTo = applyTo;
