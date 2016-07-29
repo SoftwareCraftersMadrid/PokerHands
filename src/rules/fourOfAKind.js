@@ -1,17 +1,10 @@
-var handOperations = require('./handOperations');
+var _ = require('lodash');
 var HandType = require('../HandTypes');
 
-var isThreeTimes = (element, list) => handOperations.isRepeated(element, list, 4);
-
-var hasNotCheckedBefore = (element, checkedElements) => handOperations.notContains(element, checkedElements);
-
 function check(hand) {
-    var checkedElements = [];
-    hand.forEach(function (element, index, elements) {
-        if(hasNotCheckedBefore(element, checkedElements) && isThreeTimes(element, elements))
-            checkedElements.push(element);
-    });
-    return checkedElements.length == 1;
+    var groupedByValue = _.groupBy(hand, (card) => card.value);
+    var foundValues = _.filter(groupedByValue, (value) => value.length == 4);
+    return foundValues.length == 1;
 }
 
 

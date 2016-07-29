@@ -3,17 +3,17 @@ var Card = require('../src/card');
 var game = require('../src/game');
 
 describe('Poker Game', function() {
-    describe('Highcard hand vs highcard hand', function() {
+    describe('Full house hand vs highcard hand', function() {
 
-        it('should return the highest card hand as winner', function () {
+        it('should return the full house player as winner', function () {
             var black ={
                 name: "Black",
                 hand: [
                     new Card('2', "H"),
-                    new Card('3', "D"),
-                    new Card('5', "S"),
-                    new Card('9', "C"),
-                    new Card('K', "D")
+                    new Card('4', "S"),
+                    new Card('4', "C"),
+                    new Card('2', "D"),
+                    new Card('4', "H")
                 ]
             };
             var white ={
@@ -26,7 +26,7 @@ describe('Poker Game', function() {
                     new Card('A', "H")
                 ]
             };
-            expect(game.play(black).versus(white)).to.be.equal("White wins. - with high card: Ace");
+            expect(game.play(black).versus(white)).to.be.equal("Black wins. - with fullHouse");
         });
 
     });
