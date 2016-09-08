@@ -1,0 +1,22 @@
+{
+  "name": "poker-hand-kata-js",
+  "version": "0.0.1",
+  "description": "Software Craftsmanship Madrid Kata",
+  "main": "src/ index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jdvr/poker-hand-kata-js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^2.5.3"
+  },
+  "dependencies": {
+    "lodash": "^4.14.0"
+  }
+}
